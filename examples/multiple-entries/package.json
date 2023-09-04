@@ -14,7 +14,9 @@
     "prod": "nodemon --watch app/markup --ext html server.prod.js",
     "post-install": "echo 'module.exports = {}' >> node_modules/bootstrap-loader/postcss.config.js",
     "bs:prod": "npm run build && npm run prod",
-    "install-local": "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install"
+    "install-local": "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,8 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "nodemon": "^1.11.0",
-    "tether": "^1.3.7"
+    "tether": "^1.3.7",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
@@ -67,5 +70,6 @@
   "peerDependencies": {
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0"
-  }
+  },
+  "snyk": true
 }
